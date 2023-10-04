@@ -1,10 +1,15 @@
 pipeline {
-agent any
-stages {
-stage('init') {
-steps {
-sh 'echo "hello-world"'
-}
-}
-}
+    agent any
+    stages {
+        stage('build')
+            step{
+                sh "mvn compile"
+            }
+        }
+        stage('test'){
+            step{
+                sh "mvn test"
+            }
+        }
+
 }
